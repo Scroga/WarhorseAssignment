@@ -7,20 +7,29 @@
 StartScene::StartScene(SceneType type, GameServices& services)
 	: Scene(type, services) { setup_hud(); }
 
-// Creates HUD text elements and stores the changeable ones in game_hud_ under specific tags,
-// so they can be accessed and updated later. Static text that will not change does not use constant tags
+/// Creates HUD text elements and stores the changeable ones in game_hud_ under specific tags,
+/// so they can be accessed and updated later. Static text that will not change does not use constant tags
 void StartScene::setup_hud() {
-	Vec2 header_text_pos{ window_size_.x / 2.0f, window_size_.y / 12.0f };
-	auto header_text = GameText(services_.asset_manager, CTransform(header_text_pos, Vec2{ 40.0f }), "space invaders");
+	auto header_text = GameText(
+		services_.asset_manager, 
+		CTransform(pos_to_px(Vec2(50, 10), services_.window_size), size_to_px(Vec2(3.5f), services_.window_size)),
+		"space invaders");
 
-	Vec2 press_shift_text_pos{ window_size_.x / 2.0f, window_size_.y / 2.0f };
-	auto press_shift_text = GameText(services_.asset_manager, CTransform(press_shift_text_pos, Vec2{ 30.0f }), "press shift to start");
+	auto press_shift_text = GameText(
+		services_.asset_manager,
+		CTransform(pos_to_px(Vec2(50, 50), services_.window_size), size_to_px(Vec2(2.5f), services_.window_size)),
+		"press shift to start");
 
-	Vec2 movement_instruction_pos{ window_size_.x / 2.0f, window_size_.y - window_size_.y / 7.0f };
-	auto movement_instruction = GameText(services_.asset_manager, CTransform(movement_instruction_pos, Vec2{ 15.0f }), "use left or right arrow to move");
 
-	Vec2 shoot_instruction_pos{ window_size_.x / 2.2f, window_size_.y - window_size_.y / 12.0f };
-	auto shoot_instruction = GameText(services_.asset_manager, CTransform(shoot_instruction_pos, Vec2{ 15.0f }), "use space to shoot enemies");
+	auto movement_instruction = GameText(
+		services_.asset_manager, 
+		CTransform(pos_to_px(Vec2(50, 80), services_.window_size), size_to_px(Vec2(1.2f), services_.window_size)),
+		"use left or right arrow to move");
+
+	auto shoot_instruction = GameText(
+		services_.asset_manager,
+		CTransform(pos_to_px(Vec2(50, 90), services_.window_size), size_to_px(Vec2(1.2f), services_.window_size)),
+		"use space to shoot enemies");
 
 	// we don't really need to remember header text tag
 	game_hud_.add_text("header", header_text);

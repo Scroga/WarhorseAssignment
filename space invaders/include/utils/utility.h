@@ -35,8 +35,7 @@ inline DWORD change_color(DWORD old_color, int i) {
     return (a << 24) | (r << 16) | (g << 8) | (b);
 }
 
-inline Vec2 rotate_point(Vec2 center, Vec2 offset, float angle)
-{
+inline Vec2 rotate_point(Vec2 center, Vec2 offset, float angle) {
     float c = cosf(angle);
     float s = sinf(angle);
 
@@ -55,11 +54,24 @@ inline Vec2 clamp(Vec2 v, float lo, float hi) {
     return Vec2(clamp(v.x, lo, hi), clamp(v.y, lo, hi));
 }
 
-///
-/// @param percent Vector in range [0, 100] (clamp will be applied)
-/// @param screenSize Current size of the screen
-/// @return 
-inline Vec2 percent_to_pixels(Vec2 percent, Vec2 screenSize) {
+/// Converts a position given in percent of the screen into pixels
+/// Percent values are clamped to [0, 100]
+/// @param  percent Vec2 in percent of screen (0..100)
+/// @param screenSize Screen size in pixels
+/// @return Vec2 position in pixels
+inline Vec2 pos_to_px(Vec2 percent, Vec2 screenSize) {
     const Vec2 p = clamp(percent, 0.0f, 100.f) / 100.0f;
     return Vec2{ p.x * screenSize.x, p.y * screenSize.y };
+}
+
+/// Converts a size given in percent of the screen into pixels
+/// Percent values are clamped to [0, 100]
+/// @param  percent Vec2 in percent of screen (0..100)
+/// @param screenSize Screen size in pixels
+/// @return Vec2 size of sprite in pixels
+inline Vec2 size_to_px(Vec2 percent, Vec2 screenSize) {
+    const Vec2 p = clamp(percent, 0.0f, 100.f) / 100.0f;
+    float max = screenSize.x > screenSize.y ? screenSize.x : screenSize.y;
+    return Vec2(p * max);
+
 }

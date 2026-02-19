@@ -6,8 +6,6 @@
 class StartScene : public Scene{
 private:
 	const std::string PRESS_SHIFT_TEXT_TAG = "text";
-	const Vec2 window_size_{ services_.window_size };
-
 public:
 	StartScene(SceneType type, GameServices& services);
 
