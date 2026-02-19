@@ -21,7 +21,7 @@ public:
 	static constexpr char* obstacle_tag = "obstacle";
 	ObstaclesSpawner() = delete;
 	ObstaclesSpawner(EntityManager& entity_manager, std::vector<void*> obstacle_sprites) 
-		: entity_manager_(entity_manager), obstacle_sprites_(std::move(obstacle_sprites_)) {}
+		: entity_manager_(entity_manager), obstacle_sprites_(std::move(obstacle_sprites)) {}
 
 	std::shared_ptr<Obstacle> spawn_one_obstacle(Vec2 pos);
 	void spawn_obstacle_structure(Vec2 pos);

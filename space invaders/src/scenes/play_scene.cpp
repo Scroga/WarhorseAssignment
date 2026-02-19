@@ -4,10 +4,10 @@
 
 PlayScene::PlayScene(SceneType type, GameServices& services) : Scene(type, services) {
 	// Spawn obstacles
-	//for (auto obstacle_pos : obstacles_spawn_pos_)
-	//	obstacles_spawner_.spawn_obstacle_structure(obstacle_pos);
+	for (auto& obstacle_pos : obstacles_spawn_pos_)
+		obstacles_spawner_.spawn_obstacle_structure(obstacle_pos);
 
-	// Spawn and setup player_
+	// Spawn and setup player
 	player_ = services_.entity_manager.spawn_actor<Player>(
 		player_spawn_pos_, player_size_, player_angle_,
 		player_collision_offset_, player_collision_size_,

@@ -47,10 +47,10 @@ private:
 		services_.asset_manager.get_bullet_sprite(),
 	};
 
-	//ObstaclesSpawner obstacles_spawner_{
-	//	services_.entity_manager,
-	//	services_.asset_manager.get_obstacle_sprites()
-	//};
+	ObstaclesSpawner obstacles_spawner_{
+		services_.entity_manager,
+		services_.asset_manager.get_obstacle_sprites()
+	};
 
 	HealthBar health_bar_{
 		services_.entity_manager,
