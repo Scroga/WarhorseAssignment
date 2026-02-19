@@ -18,6 +18,8 @@ void Player::shoot(EntityManager& entity_manager, void* bullet_sprite) {
 		bullet_size_, bullet_angle_,
 		bullet_collision_offset_, bullet_collision_size_,
 		bullet_tag, bullet_sprite);
+
+	bullet->add_component<CLifeSpan>(bullet_life_span_);
 	bullet->speed = bullet_speed_;
 	bullet->dir = bullet_dir;
 }

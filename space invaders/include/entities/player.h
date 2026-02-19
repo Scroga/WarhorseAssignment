@@ -20,6 +20,7 @@ private:
 	const Vec2 bullet_collision_offset_{ 0.0f, -12.0f };
 	const float bullet_collision_size_ = 6.0f;
 	const float bullet_speed_ = 500.0f;
+	const int bullet_life_span_ = 150;
 
 	const milliseconds damage_color_change_{ 500 };
 	const milliseconds enemy_shoot_cooldown_{ 400 };

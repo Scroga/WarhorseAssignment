@@ -17,6 +17,7 @@ private:
 	const float bullet_angle_ = deg_to_rad(-90.0f);
 	const Vec2 bullet_collision_offset_{ 0.0f, 12.0f };
 	const float bullet_collision_size_ = 6.0f;
+	const int bullet_life_span_ = 200;
 public:
 	static constexpr const char* bullet_tag = "e_bullet";
 

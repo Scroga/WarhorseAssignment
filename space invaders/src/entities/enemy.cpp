@@ -16,6 +16,7 @@ void Enemy::shoot(EntityManager& entity_manager, void* bullet_sprite) {
 		bullet_tag, bullet_sprite);
 	bullet->speed = bullet_speed;
 	bullet->dir = bullet_dir;
+	bullet->add_component<CLifeSpan>(bullet_life_span_);
 	bullet->get_component<CRenderer>().color = default_bullet_color_;
 }
 
