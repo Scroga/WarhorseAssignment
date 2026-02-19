@@ -45,33 +45,21 @@ inline Vec2 rotate_point(Vec2 center, Vec2 offset, float angle)
         center.y + offset.y * c - offset.x * s );
 }
 
-
-////////////////////////////////////////////////////
-
 inline float clamp(float v, float lo, float hi) {
     if (v < lo) return lo;
     if (v > hi) return hi;
     return v;
 }
 
-// percent in [0..100], screen in pixels -> pixels
-inline Vec2 percentPosToPixels(Vec2 percentPos01to100, Vec2 screenSizePx) {
-    const float px = clamp(percentPos01to100.x, 0.f, 100.f) / 100.f;
-    const float py = clamp(percentPos01to100.y, 0.f, 100.f) / 100.f;
-
-    return {
-        px * screenSizePx.x,
-        py * screenSizePx.y
-    };
+inline Vec2 clamp(Vec2 v, float lo, float hi) {
+    return Vec2(clamp(v.x, lo, hi), clamp(v.y, lo, hi));
 }
 
-// percent in [0..100] of screen size, screen in pixels -> pixels
-inline Vec2 percentSizeToPixels(Vec2 percentSize01to100, Vec2 screenSizePx) {
-    const float sx = clamp(percentSize01to100.x, 0.f, 100.f) / 100.f;
-    const float sy = clamp(percentSize01to100.y, 0.f, 100.f) / 100.f;
-
-    return {
-        sx * screenSizePx.x,
-        sy * screenSizePx.y
-    };
+///
+/// @param percent Vector in range [0, 100] (clamp will be applied)
+/// @param screenSize Current size of the screen
+/// @return 
+inline Vec2 percent_to_pixels(Vec2 percent, Vec2 screenSize) {
+    const Vec2 p = clamp(percent, 0.0f, 100.f) / 100.0f;
+    return Vec2{ p.x * screenSize.x, p.y * screenSize.y };
 }
