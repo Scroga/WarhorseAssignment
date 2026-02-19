@@ -1,0 +1,141 @@
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+* 28.01.2026
+
+18:32 started
+22:40 finished
+
+Implemented:
+- the skeleton of the game engine, specifically AssetManager and EntityManager
+- Entity class which supports component system and template method to add, change and remove components
+- The basic components such as CTransform, CRenderer and CCollision
+- template Vector class with several useful methods (distance, normalize, length)
+- the base version of Bullet class
+
+For the next:
+- circle collision detection
+- SmartText which will draw text given string and position
+- implement more entities such as Player and Enemy
+
+Time spent: ~ 3.5 h
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+* 29.01.2026
+
+22:02 started
+23:36 finished
+
+Implemented:
+- the base version of Player and Enemy class
+- circle collision detection between the player and enemy bullets, and between enemies and player bullets
+
+For the next:
+- EnemySystem class which will spawn enemies and handle their shooting
+
+Time spent: ~ 1.5 h
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+* 02.02.2026
+
+22:30 started
+00:47 finished
+
+Implemented:
+- the base version of EnemySystem
+- refactor DirectX code stored in leetlib.h
+
+For the next:
+- finish EnemySystem
+- add GameText class, which will take transform and string and draw sprites at specific places to form the text
+
+Time spent: ~ 2 h
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+* 03.02.2026
+
+14:03 started
+17:10 finished
+
+Implemented:
+- complete EnemySystem (spawn and shooting systems)
+- GameText class
+- the base version of HUD
+
+For the next:
+- add HUD system (update player's stats)
+- add obstacles with "animation"
+- add new game sprites
+- add different enemy types
+
+Time spent: ~ 3 h
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+* 03.02.2026
+
+22:03 started
+00:13 finished
+
+Implemented:
+- add HUD system
+- add different scenes (Scene class)
+- improve enemy spawn (add color change and different stats)
+- improve file system
+
+For the next:
+- implement enemies health in play scene hud
+- add obstacles with "animation"
+- add new game sprites
+
+Time spent: ~ 2 h
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+* 06.02.2026
+
+21:08 started
+23:43 finished
+
+Implemented:
+- add Ufo entity
+- improve hud and entity systems
+- split functionality into scenes
+- add Scene base class, StartScene class, PlayScene class and EndScene class
+
+For the next:
+- implement Obstacle class and some kind of obstacle spawner/factory
+- improve entity update logic in play scene
+- add high score system from file
+
+Time spent: ~ 3 h
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+* 07.02.2026
+
+15:00 started
+18:30 finished
+
+Implemented:
+- improve PlayScene logic
+- draw obstacles sprites
+- implement Obstacle and obstacle spawner
+
+For the next:
+- add more comments
+
+Time spent: ~ 2.5 h
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+* 09.02.2026
+
+22:43 started
+11:36 finished
+
+Implemented:
+- fix bug with GameClock
+- add more comments
+
+Time spent: ~ 1 h
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
+TOTAL TIME SPENT: ~ 18.5 h

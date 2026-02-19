@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\systems">
+      <UniqueIdentifier>{57ffb10f-ed68-41c1-a799-a8ccc28e8351}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scenes">
+      <UniqueIdentifier>{3f47104c-9d6c-4832-90cf-6003fcf73ee2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entities">
+      <UniqueIdentifier>{9f5b2739-7f33-470f-8056-070084e9037a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{cbe95c0e-c276-4c2b-abc8-c70fa5fe693d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\utils">
+      <UniqueIdentifier>{f7a1d4d8-a226-4172-b323-2abe1661d3c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\entities">
+      <UniqueIdentifier>{ffac52dd-ad6d-45be-bc8b-2c13c097d2dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\systems">
+      <UniqueIdentifier>{f571888a-93aa-4abf-bfcb-9df3b34ecb08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\scenes">
+      <UniqueIdentifier>{46c36de6-d5e3-46e7-9704-e143c04c9172}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{d3831d79-d833-45bb-986b-61bc02fc72d0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\scenes\end_scene.cpp">
+      <Filter>src\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\start_scene.cpp">
+      <Filter>src\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\play_scene.cpp">
+      <Filter>src\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\sound_handler.cpp">
+      <Filter>src\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\space_invaders.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\sprite_renderer.cpp">
+      <Filter>src\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\player.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\enemy.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\asset_manager.cpp">
+      <Filter>src\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\entity_manager.cpp">
+      <Filter>src\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\enemy_system.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\game_hud.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\obstacles_spawner.cpp">
+      <Filter>src\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game_application.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\health_bar.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\systems\asset_manager.h">
+      <Filter>include\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\entity_manager.h">
+      <Filter>include\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\collision_detector.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\components.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\game_clock.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\game_text.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\utility.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\vec2.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entities\bullet.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entities\player.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entities\entity.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entities\enemy.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\space_invaders.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scenes\end_scene.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scenes\start_scene.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scenes\scene.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scenes\play_scene.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entities\ufo.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entities\obstacle.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\sprite_renderer.h">
+      <Filter>include\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\sound_handler.h">
+      <Filter>include\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\input_handler.h">
+      <Filter>include\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\game_hud.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entities\obstacles_spawner.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entities\enemy_system.h">
+      <Filter>include\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\game_application.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\game_services.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\custom_vertex.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scenes\scene_type.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\health_bar.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
