@@ -14,15 +14,13 @@ SpaceInvaders::SpaceInvaders(GameServices& services) : services_(services)
 }
 
 /// Handles game scenes. All scene transition logic and hierarchy are implemented in this method
-/// The initial scene is StartScene; when it ends, PlayScene starts
-/// When PlayScene ends, the player's score is passed to EndScene
-/// When EndScene ends, the game restarts
+/// The initial scene is StartScene, when it ends, PlayScene starts
+/// When PlayScene ends, the player's score is passed to EndScene and EndScene starts
+/// When EndScene ends, the PlayScene restarts
 void SpaceInvaders::handle_scenes() {
 	if (current_scene_->has_ended()) {
 		if (current_scene_->type == SceneType::Start || current_scene_->type == SceneType::End) {
-			current_scene_->clear();
-			services_.entity_manager.clear();
-			current_scene_ = std::make_unique<PlayScene>(SceneType::Play, services_);
+			scene_transition<PlayScene>(SceneType::Play, services_);
 		}
 		else if (current_scene_->type == SceneType::Play) {
 			int current_score = 0;
@@ -30,9 +28,7 @@ void SpaceInvaders::handle_scenes() {
 				current_score = scene->get_score();
 				best_score_ = best_score_ > current_score ? best_score_ : current_score;
 			}
-			current_scene_->clear();
-			services_.entity_manager.clear();
-			current_scene_ = std::make_unique<EndScene>(SceneType::End, services_, current_score, best_score_);
+			scene_transition<EndScene>(SceneType::End, services_, current_score, best_score_);
 		}
 	}
 }
