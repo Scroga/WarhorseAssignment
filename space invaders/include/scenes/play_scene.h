@@ -63,7 +63,7 @@ private:
 
 public:
 	static constexpr const char* player_tag = "player";
-	bool render_collision = true;
+	bool render_collision = false;
 
 	PlayScene(SceneType type, GameServices& services);
 
