@@ -3,7 +3,7 @@
 #include <tuple>
 
 #include "utils/components.h"
-#include "utils/game_clock.h"
+#include "utils/frame_context.h"
 
 class EntityManager;
 
@@ -39,7 +39,7 @@ protected:
 public:
 	virtual ~Entity() = default;
 
-	virtual void update(const GameClock& clock) {}
+	virtual void update(const FrameContext& frame_context) {}
 
 	std::string tag() const { return tag_; }
 	size_t id() const { return id_; }

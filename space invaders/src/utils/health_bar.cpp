@@ -7,6 +7,7 @@ HealthBar::HealthBar(EntityManager& entity_manager, Vec2 pos, Vec2 s, void* spr,
 	reset();
 }
 
+/// Recreates the health bar sprites based on the current number of health points.
 void HealthBar::reset() {
 	sprites_.clear();
 	sprites_.reserve(points_);
@@ -25,6 +26,7 @@ void HealthBar::reset() {
 	}
 }
 
+/// Increases number of health points and updates health bar sprites.
 void HealthBar::increase() {
 	points_ptr_ = (points_ptr_ == points_ - 1) ? points_ptr_ : points_ptr_ + 1;
 
@@ -34,6 +36,7 @@ void HealthBar::increase() {
 	}
 }
 
+/// Decreases number of health points and updates health bar sprites.
 void HealthBar::decrease() {
 	if (auto sprite = sprites_[points_ptr_].lock()) {
 		auto& renderer = sprite->get_component<CRenderer>();
@@ -43,4 +46,5 @@ void HealthBar::decrease() {
 	points_ptr_ = (points_ptr_ == 0) ? points_ptr_ : points_ptr_ - 1;
 }
 
+/// Remove all sprites.
 void HealthBar::clear() { sprites_.clear(); }

@@ -14,12 +14,12 @@ private:
 	const DWORD NORMAL_COLOR = 0xffffffff;
 	const DWORD DAMAGE_COLOR = 0xffdd1111; // red
 
-	const Vec2 bullet_offset_{ 0.0f, -10.0f };
-	const Vec2 bullet_size_{ 15.0f, 15.0f };
+	const Vec2 bullet_offset_{ 0.0f, -2.0f };
+	const Vec2 bullet_size_{ 1.0f };
 	const float bullet_angle_ = deg_to_rad(90.0f);
-	const Vec2 bullet_collision_offset_{ 0.0f, -12.0f };
-	const float bullet_collision_size_ = 6.0f;
-	const float bullet_speed_ = 500.0f;
+	const Vec2 bullet_collision_offset_{ 0.0f, -2.0f };
+	const float bullet_collision_size_ = 0.5f;
+	const float bullet_speed_ = 55.0f;
 	const int bullet_life_span_ = 150;
 
 	const milliseconds damage_color_change_{ 500 };
@@ -31,13 +31,13 @@ public:
 	static constexpr const char* bullet_tag = "p_bullet";
 
 	BulletDir bullet_dir = BulletDir::UP;
-	float movement_speed = 600.0f;
+	float movement_speed = 70.0f;
 
 	float bobbing_freq = 0.02f;
 	float bobbing_scale = 10.0f;
 
-	void shoot(EntityManager& entity_manager, void* bullet_sprite);
-	void move(MovementDir dir, const GameClock& clock, Vec2 window_size);
+	void shoot(EntityManager& entity_manager, const FrameContext& frame_context, void* bullet_sprite);
+	void move(MovementDir dir, const FrameContext& frame_context);
 	void on_damage();
-	void update(const GameClock& clock) override;
+	void update(const FrameContext& frame_context) override;
 };

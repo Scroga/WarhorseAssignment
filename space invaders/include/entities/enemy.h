@@ -12,21 +12,21 @@ protected:
 private:
 	const DWORD default_bullet_color_ = 0xffffeeee;
 
-	const Vec2 bullet_offset_{ 0.0f, 10.0f };
-	const Vec2 bullet_size_{ 15.0f, 15.0f };
+	const Vec2 bullet_offset_{ 0.0f, 2.0f };
+	const Vec2 bullet_size_{ 1.0f };
 	const float bullet_angle_ = deg_to_rad(-90.0f);
-	const Vec2 bullet_collision_offset_{ 0.0f, 12.0f };
-	const float bullet_collision_size_ = 6.0f;
-	const int bullet_life_span_ = 200;
+	const Vec2 bullet_collision_offset_{ 0.0f, 1.5f };
+	const float bullet_collision_size_ = 0.5f;
+	const int bullet_life_span_ = 150;
 public:
 	static constexpr const char* bullet_tag = "e_bullet";
 
 	BulletDir bullet_dir = BulletDir::DOWN;
-	float bullet_speed = 200.0f;
+	float bullet_speed = 60.0f;
 
-	float bobbing_freq = 0.01f;
-	float bobbing_scale = -35.0f;
+	Vec2 trajectory_size{ 1.0f, 0.7f };
+	float trajectory_speed = 0.05;
 
-	void shoot(EntityManager& entity_manager, void* bullet_sprite);
-	void update(const GameClock& clock) override;
+	void shoot(EntityManager& entity_manager, const FrameContext& frame_context, void* bullet_sprite);
+	void update(const FrameContext& frame_context) override;
 };

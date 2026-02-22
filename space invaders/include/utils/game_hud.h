@@ -22,6 +22,6 @@ public:
 	void add_entity(const std::string& tag, std::shared_ptr<Entity> text);
 	std::shared_ptr<Entity> get_entity(const std::string& tag);
 
-	void draw(const SpriteRenderer& renderer);
+	void draw_texts(const SpriteRenderer& renderer);
 	void clear();
 };

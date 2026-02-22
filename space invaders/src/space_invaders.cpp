@@ -13,10 +13,10 @@ SpaceInvaders::SpaceInvaders(GameServices& services) : services_(services)
 	current_scene_ = std::make_unique<StartScene>(SceneType::Start, services_);
 }
 
-/// Handles game scenes. All scene transition logic and hierarchy are implemented in this method
-/// The initial scene is StartScene, when it ends, PlayScene starts
-/// When PlayScene ends, the player's score is passed to EndScene and EndScene starts
-/// When EndScene ends, the PlayScene restarts
+/// Handles game scenes. All scene transition logic and hierarchy are implemented in this method.
+/// The initial scene is StartScene, when it ends, PlayScene starts.
+/// When PlayScene ends, the player's score is passed to EndScene and EndScene starts.
+/// When EndScene ends, the PlayScene restarts.
 void SpaceInvaders::handle_scenes() {
 	if (current_scene_->has_ended()) {
 		if (current_scene_->type == SceneType::Start || current_scene_->type == SceneType::End) {
@@ -33,15 +33,14 @@ void SpaceInvaders::handle_scenes() {
 	}
 }
 
-/// Updates the game_clock_, handles scene management,
-/// updates the current scene, and draws the scene.
+/// Updates the current scene clock, input, scene logic and possible scene translation.
+/// Updates all entities via the entity manager and renders all entities in the current scene.
 void SpaceInvaders::in_loop() {
-	game_clock_.in_loop();
+	current_scene_->update_clock();
+	current_scene_->handle_input();
+	current_scene_->update();
 
-	current_scene_->handle_input(game_clock_);
-	current_scene_->update(game_clock_);
 	handle_scenes();
-
 	services_.entity_manager.update();
 
 	current_scene_->draw_entities();

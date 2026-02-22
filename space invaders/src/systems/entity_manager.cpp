@@ -4,6 +4,7 @@
 
 #include <algorithm>
 
+/// Updates the entity manager for the current frame.
 void EntityManager::update() {
 	// Removes dead entities from the main vector
 	remove_dead_entities(entities_);
@@ -20,11 +21,13 @@ void EntityManager::update() {
 	entities_to_add_.clear();
 }
 
+/// Removes entities that are no longer alive from the given container.
 void EntityManager::remove_dead_entities(EntityVector& vector) {
 	vector.erase(std::remove_if(vector.begin(), vector.end(),
 		[](const auto& e) {return !e->is_alive(); }), vector.end());
 }
 
+/// Returns a read-only list of entities that have the given tag.
 const EntityVector& EntityManager::get_entities(const std::string& tag) const {
 	static const EntityVector empty;
 	auto it = entity_map_.find(tag);
@@ -44,6 +47,7 @@ std::shared_ptr<Entity> EntityManager::get_entity(const std::string& tag, size_t
 	return (it == entities.end()) ? nullptr : *it;
 }
 
+/// Removes all entities in containers, sets total entity count to zero.
 void EntityManager::clear() {
 	entities_.clear();
 	entities_to_add_.clear();

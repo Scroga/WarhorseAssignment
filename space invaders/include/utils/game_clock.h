@@ -42,9 +42,9 @@ public:
 		return started_ && now - prev_ < duration_;
 	}
 
-	/// Tries to trigger the timer. Triggering is not possible until the previously set duration has finished
-	/// @param duration The duration for which the trigger will run
-	/// @return True if the trigger occurred; otherwise, false
+	/// Tries to trigger the timer. Triggering is not possible until the previously set duration has finished.
+	/// @param duration The duration for which the trigger will run.
+	/// @return True if the trigger occurred; otherwise, false.
 	bool try_trigger(milliseconds duration) {
 		if (is_running()) return false;
 

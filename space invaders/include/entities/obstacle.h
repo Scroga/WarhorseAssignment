@@ -11,9 +11,8 @@ protected:
 	std::vector<void*> sprites_;
 	size_t sprites_count_ = 0;
 	size_t sprite_ptr_ = 0;
-
 public:
-	void set_sprites(const std::vector<void*> sprites) { 
+	void set_sprites(const std::vector<void*>& sprites) { 
 		sprites_count_ = sprites.size();
 		sprites_ = sprites; 
 	}
@@ -26,5 +25,12 @@ public:
 
 		if (sprite_ptr_ + 1 >= sprites_count_) return;
 		get_component<CRenderer>().sprite = sprites_[++sprite_ptr_];
+	}
+
+	void reset() {
+		sprite_ptr_ = 0;
+		if (has_component<CRenderer>() && !sprites_.empty()) {
+			get_component<CRenderer>().sprite = sprites_[sprite_ptr_];
+		}
 	}
 };

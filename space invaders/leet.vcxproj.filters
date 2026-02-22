@@ -171,5 +171,8 @@
     <ClInclude Include="include\utils\health_bar.h">
       <Filter>include\utils</Filter>
     </ClInclude>
+    <ClInclude Include="include\utils\frame_context.h">
+      <Filter>include\utils</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

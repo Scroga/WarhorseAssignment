@@ -8,6 +8,7 @@
 class Scene {
 protected:
 	GameHud game_hud_;
+	GameClock clock_;
 	GameServices& services_;
 	bool has_ended_ = false;
 public:
@@ -17,10 +18,12 @@ public:
 
 	virtual void setup_hud() = 0;
 	virtual void draw_entities() = 0;
-	virtual void handle_input(const GameClock& clock) = 0;
-	virtual void update(const GameClock& clock) = 0;
+	virtual void handle_input() = 0;
+	virtual void update() = 0;
 	virtual void clear() = 0;
-	
+
+	void update_clock() { clock_.in_loop(); }
+
 	bool has_ended() { return has_ended_; }
 	void end_scene() { has_ended_ = true; }
 };

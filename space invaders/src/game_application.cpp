@@ -2,6 +2,7 @@
 
 #include "utils/custom_vertex.h" 
 
+/// Handles Windows messages for the main application window.
 LRESULT GameApplication::handle_message(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	// msg:
 	// WM_PAINT		needs repaint

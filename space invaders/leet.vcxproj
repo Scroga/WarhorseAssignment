@@ -111,6 +111,7 @@
     <ClCompile Include="src\scenes\start_scene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\utils\frame_context.h" />
     <ClInclude Include="include\utils\health_bar.h" />
     <ClInclude Include="include\utils\custom_vertex.h" />
     <ClInclude Include="include\utils\game_services.h" />

@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <sstream>
+#include <cassert>
 
 class GameText {
 private:
@@ -43,6 +44,10 @@ public:
 		set_text(ss.str());
 	}
 
+	/// Draws text by rendering each letter sprite next to the previouse one.
+	/// The text is horizontally centred around transfrom.pos.x.
+	/// Space between letters is controlled by 'text_margin'.
+	/// @pram renderer Sprite renderer is used to draw individual letter sprites.
 	void draw(const SpriteRenderer& renderer) {
 		float text_length = transform.size.x * text_margin * (letter_sprites_.size() - 1);
 		float spawn_pos_x = transform.pos.x - text_length * 0.5f;
@@ -50,6 +55,7 @@ public:
 		for (size_t i = 0; i < letter_sprites_.size(); i++) {
 			float pos_x = spawn_pos_x + (transform.size.x * text_margin * i);
 			void* sprite = letter_sprites_[i];
+			
 			if (!sprite) continue;
 
 			renderer.draw_sprite(

@@ -17,31 +17,39 @@ private:
 
 	const DWORD default_enemy_color_ = 0xffffffff;
 
+	// enemies shooting
 	const float enemy_shooting_range_multiplier_ = 1.5f;
-	const float enemy_bullet_speed_ = 150.0f;
-	const float enemy_bullet_acceleration_ = 15.0f;
+	const float enemy_bullet_speed_ = 25.0f;
+	const float enemy_bullet_acceleration_ = 3.0f;
 	const milliseconds enemy_shoot_cooldown_{ 800 };
+	GameTimer enemy_shoot_timer_;
 
+	// enemies score
 	const int enemy_score_ = 10;
 	const int enemy_score_bust_ = 2;
 
+	// enemies position/size
 	const Vec2 enemies_spawn_pos_;
-	const Vec2 enemies_margin_{ 2.7f, 1.4f };
-
-	const Vec2 enemy_size_{ 30.0f, 30.0f };
+	const Vec2 enemy_size_{ 2.5f };
 	const float enemy_angle_ = deg_to_rad(0.0f);
-	const Vec2 enemy_collision_offset_{ 0.0f, 0.0f };
-	const float enemy_collision_size = 30.0f;
+	const Vec2 enemy_collision_offset_{ 0.0f };
+	const float enemy_collision_size = 2.3f;
 
+	const Vec2 enemies_margin_{ 2.5f, 2.5f };
+
+	// enemies trajectory
+	const Vec2 enemies_trajectory_size{ 0.15f, 0.03f };
+	const float enemies_trajectory_speed = 0.005f;
+
+	// ufo
 	const Vec2 ufo_spawn_pos_;
-	const Vec2 ufo_size_{ 40.0f };
-	const milliseconds ufo_spawn_cooldown_{ 25000 };
+	const Vec2 ufo_size_{ 2.8f };
+	const milliseconds ufo_spawn_cooldown_{ 23000 };
 	const int ufo_score_ = 100;
-	const int ufo_life_span_ = 2200;
+	const int ufo_life_span_ = 1500;
+	GameTimer ufo_spawn_timer_;
 
 	std::vector<EnemyQueue> enemies_;
-	GameTimer enemy_shoot_timer_;
-	GameTimer ufo_spawn_timer_;
 
 	EntityManager& entity_manager_;
 	void* enemy_sprite_;
@@ -49,7 +57,7 @@ private:
 	void* bullet_sprite_;
 	
 	std::shared_ptr<Enemy> get_upper_active_enemy(EnemyQueue& queue);
-	void handle_enemy_shooting(std::shared_ptr<Player> player);
+	void handle_enemy_shooting(const FrameContext& frame_context, Vec2 player_pos, Vec2 player_size);
 	void handle_spawn_ufo();
 public:
 	static constexpr const char* enemy_tag = "enemy";
@@ -57,7 +65,7 @@ public:
 	EnemySystem(EntityManager& entity_manager, Vec2 enemies_spawn_pos, Vec2 ufo_spawn_pos, 
 		void* enemy_sprite, void* ufo_sprite, void* bullet_sprite);
 
-	void update(std::shared_ptr<Player> player);
+	void update(const FrameContext& frame_context, std::shared_ptr<Player> player);
 	void spawn_enemies(size_t columns_count, size_t rows_count);
 	void clear();
 };

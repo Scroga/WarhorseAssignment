@@ -13,25 +13,24 @@ void AssetManager::preload() {
 	add_sprite(ufo_tag_, ufo_sprite_path_);
 }
 
-/// Takes a tag and a sprite path and stores the sprite into the map
-/// @param name Tag used to store and later retrieve the sprite
-/// @param path Path to the sprite file to load and store
+/// Takes a tag and a sprite path and stores the sprite into the map.
+/// @param name Tag used to store and later retrieve the sprite.
+/// @param path Path to the sprite file to load and store.
 void AssetManager::add_sprite(const std::string& name, const std::string& path) {
 	void* sprite = sprite_renderer_.load_sprite(path.c_str());
 	assert(sprite && "load_sprite returned nullptr");
 	sprites_[name] = sprite;
 }
 
-/// Returns the sprite stored under the specified tag
-/// @param tag Map key used to retrieve the sprite
-/// @return Pointer to the sprite if it exists; otherwise, nullptr
+/// Returns the sprite stored under the specified tag.
+/// @param tag Map key used to retrieve the sprite.
+/// @return Pointer to the sprite if it exists; otherwise, nullptr.
 void* AssetManager::get_sprite(const std::string& tag) const {
 	auto it = sprites_.find(tag);
 	return (it == sprites_.end()) ? nullptr : it->second;
 }
 
-/// Uses letters_path_mask_ to construct the path for each letter sprite,
-/// and stores each sprite under its corresponding tag
+/// Uses letters_path_mask_ to construct the path for each letter sprite, and stores each sprite under its corresponding tag.
 void AssetManager::preload_letters() {
 	std::string path = letters_path_mask_;
 	auto pos = path.find(index_placeholder);
@@ -44,8 +43,7 @@ void AssetManager::preload_letters() {
 	}
 }
 
-/// Uses digits_path_mask_ to construct the path for each digit sprite,
-/// and stores each sprite under its corresponding tag
+/// Uses digits_path_mask_ to construct the path for each digit sprite, and stores each sprite under its corresponding tag.
 void AssetManager::preload_digits() {
 	std::string path = digits_path_mask_;
 	auto pos = path.find(index_placeholder);
@@ -79,8 +77,8 @@ void* AssetManager::get_bullet_sprite() const { return get_sprite(bullet_tag_); 
 void* AssetManager::get_enemy_sprite() const { return get_sprite(enemy_tag_); }
 void* AssetManager::get_ufo_sprite() const { return get_sprite(ufo_tag_); }
 
-/// Constructs and returns a vector of obstacle sprites
-/// @return A vector of pointers to the obstacle sprites
+/// Constructs and returns a vector of obstacle sprites.
+/// @return A vector of pointers to the obstacle sprites.
 std::vector<void*> AssetManager::get_obstacle_sprites() const {
 	std::vector<void*> sprites;
 	sprites.reserve(obstacle_sprites_count_);

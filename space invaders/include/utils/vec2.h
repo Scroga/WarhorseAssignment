@@ -43,7 +43,9 @@ public:
 		return std::sqrt((rhs.x - x) * (rhs.x - x) + (rhs.y - y) * (rhs.y - y));
 	}
 
-	float length() const { return std::sqrt(x * x + y * y); }
+	float length() const { 
+		return std::sqrt(x * x + y * y); 
+	}
 
 	void noramlize() {
 		float len = length();

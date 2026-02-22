@@ -13,7 +13,6 @@ class SpaceInvaders {
 private:
 	std::unique_ptr<Scene> current_scene_;
 	GameServices& services_;
-	GameClock game_clock_;
 	int best_score_ = 0;
 
 	void handle_scenes();

@@ -9,19 +9,20 @@ protected:
 public:
 	MovementDir dir = MovementDir::LEFT;
 
-	float speed = 100.0f;
-	float bobbing_freq = 0.01f;
+	float speed = 10.0f;
+	float bobbing_freq = 0.05f;
 	float bobbing_scale = -35.0f;
 
-	/// Updates the UFO's movement along the x-axis and applies vertical bobbing
-	/// @param clock Allows updating movement correctly using delta time
-	void update(const GameClock& clock) override {
+	/// Updates the UFO's movement along the x-axis and applies vertical bobbing.
+	/// @param frame_context Allows updating movement correctly using delta time and screeb size.
+	void update(const FrameContext& frame_context) override {
 		if (!has_component<CTransform>()) return;
 		auto& transform = get_component<CTransform>();
 
 		int d = (dir == MovementDir::RIGHT) ? 1 : -1;
 
-		transform.pos.x = transform.pos.x + (speed * d * clock.get_delta_time());
-		transform.pos.y = bobbing(clock, transform.pos.y, bobbing_freq, bobbing_scale);
+		float current_speed = speed * frame_context.clock.get_delta_time() * frame_context.window_size.x / 100.0f;
+		transform.pos.x = transform.pos.x + current_speed * d;
+		transform.pos.y = bobbing(frame_context.clock, transform.pos.y, bobbing_freq, bobbing_scale);
 	}
 };
